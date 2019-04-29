@@ -32,7 +32,7 @@ def last_column(sht):
     c = column_cell.Column
     return c, xl_col_to_name(c-1)
 
-def used_range_to_df(sht,n_index_cols = 1):
+def to_df(sht,n_index_cols = 1):
     rng = used_range(sht)[0]
     data = sht.range(rng).value
     if n_index_cols > 0:
@@ -60,4 +60,4 @@ def used_range_to_df(sht,n_index_cols = 1):
 if __name__ == "__main__":
     rng = used_range(sht)[0]
     data = xw.Range(rng).value
-    df = used_range_to_df(sht,1)
+    df = to_df(sht,1)
